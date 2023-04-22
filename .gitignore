@@ -1,0 +1,35 @@
+# Logs
+logs
+*.log
+
+# Dependency directories
+node_modules/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Build files
+build/
+dist/
+out/
+*.pid
+*.pid.lock
+
+# Coverage files
+coverage/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Miscellaneous
+.DS_Store
+Thumbs.db
