@@ -76,7 +76,8 @@ const getRecommendedUsers = (pool) => async (req, res) => {
           id: user_2.id,
           name: user_2.name,
           email: user_2.email,
-          createdAt: user_2.createdAt
+          createdAt: user_2.createdAt,
+          profile_picture: user_2.profile_picture          
           // add any other properties you want to return
         });
         // var final_id = cur_id + 1;
@@ -106,7 +107,8 @@ const getRecommendedUsers = (pool) => async (req, res) => {
           id: user.id,
           name: user.name,
           email: user.email,
-          createdAt: user.createdAt
+          createdAt: user.createdAt,
+          profile_picture: user.profile_picture
           // add any other properties you want to return
         });
     }

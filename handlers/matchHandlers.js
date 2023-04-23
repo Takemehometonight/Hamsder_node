@@ -13,6 +13,10 @@ const getAllMatches = (pool) => async (req, res) => {
       if (rows.length === 0) {
         return res.status(404).json({ msg: 'User not found' });
       }
+
+      for(let i = 0; i < rows.length; i++){
+        
+      }
   
       const user = rows[0];
   
