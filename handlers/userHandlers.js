@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const mysql = require('mysql2/promise');
 
-console.log("user api request received")
+
 const createUser = (pool) => async (req, res) => {
     // Extract fields from request body
     let { name, email, password, profile_picture } = req.body;

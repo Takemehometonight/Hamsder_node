@@ -1,13 +1,17 @@
 // require('dotenv').config();
 const express = require('express');
 const app = express();
+const cors = require('cors')
 const mysql = require('mysql2/promise');
 const fs = require('fs');
 
+app.use(cors({ origin: 'http://localhost:3000' }));
 
 console.log("initializing connection to mysql");
 const pool = mysql.createPool({
     host: '172.18.0.1',
+    // for tracy
+    // host: '127.0.0.1
     user: 'root',
     password: 'password',
     database: 'hamsder'
@@ -42,6 +46,8 @@ app.post('/api/swipes/left', swipeHandlers.swipeLeft(pool));
 
 // Start the server
 const PORT = process.env.PORT || 5000;
+// for tracy
+const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });
