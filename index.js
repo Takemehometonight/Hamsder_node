@@ -30,6 +30,7 @@ app.use(express.json());
 // mount routing for api/user
 const userHandlers = require('./handlers/userHandlers');
 const swipeHandlers = require('./handlers/swipeHandlers');
+const matchHandlers = require('./handlers/matchHandlers');
 
 // User Management API endpoints
 app.post('/api/users', userHandlers.upload.single('profile_picture'), userHandlers.createUser(pool));
@@ -40,6 +41,10 @@ app.get('/api/users/:id', userHandlers.getUserProfile(pool));
 //swipe management API endpoints
 app.post('/api/swipes/right', swipeHandlers.swipeRight(pool));
 app.post('/api/swipes/left', swipeHandlers.swipeLeft(pool));
+app.get('/api/swipes/recommendations/:id', swipeHandlers.getRecommendedUsers(pool));
+
+//match management API endpoints
+app.get('/api/matches', matchHandlers.getAllMatches(pool));
 
 // Serve uploaded files from the "uploads" directory
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
