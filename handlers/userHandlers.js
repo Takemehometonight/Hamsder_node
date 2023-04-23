@@ -80,7 +80,8 @@ const loginUser = (pool) => async (req, res) => {
         id: user.id,
         name: user.name,
         email: user.email,
-        password: user.password
+        password: user.password,
+        profile_picture: user.profile_picture,
         // add any other properties you want to return
       });
     } catch (error) {
