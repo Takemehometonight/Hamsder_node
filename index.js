@@ -47,7 +47,7 @@ app.post('/api/swipes/left', swipeHandlers.swipeLeft(pool));
 // Start the server
 const PORT = process.env.PORT || 5000;
 // for tracy
-const PORT = process.env.PORT || 8080;
+// const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });
