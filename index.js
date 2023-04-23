@@ -23,6 +23,10 @@ connection.connect((error) => {
 
 app.use(express.json());
 
+// mount routing for api/user
+const usersRouter = require('./routes/user');
+app.use('api/user', usersRouter);
+
 
 app.get('/', (req, res) => {
     res.send('Hello, World from Eric!');
