@@ -22,6 +22,7 @@ const pool = mysql.createPool({
   connectionLimit: 10,
 });
 
+
 // User Management API endpoints
 app.post('/api/users', userHandlers.createUser(pool));
 app.post('/api/users/login', userHandlers.loginUser(pool));
