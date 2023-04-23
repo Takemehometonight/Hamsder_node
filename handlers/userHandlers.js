@@ -87,4 +87,5 @@ module.exports = router;
 module.exports = {
     createUser,
     loginUser,
+    getUserProfile
   };
