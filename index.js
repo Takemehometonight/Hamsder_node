@@ -23,13 +23,15 @@ app.use(express.json());
 
 // mount routing for api/user
 const userHandlers = require('./handlers/userHandlers');
+const swipeHandlers = require('./handlers/swipeHandlers');
 
 // User Management API endpoints
 app.post('/api/users', userHandlers.createUser(pool));
 app.post('/api/users/login', userHandlers.loginUser(pool));
 app.get('/api/users/:id', userHandlers.getUserProfile(pool));
 
-
+//swipe management API endpoints
+app.post('/api/swipes/right', swipeHandlers.swipeRight(pool));
 
 
 // app.get('/', (req, res) => {
