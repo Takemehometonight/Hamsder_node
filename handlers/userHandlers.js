@@ -1,22 +1,31 @@
 const express = require('express');
 const router = express.Router();
 const mysql = require('mysql2/promise');
+const multer = require('multer');
 
+const upload = multer({ dest: 'uploads/' });
 
 const createUser = (pool) => async (req, res) => {
     // Extract fields from request body
-    let { name, email, password, profile_picture } = req.body;
+    console.log(req.body);
+    console.log(req.file);
+    let { name, email, password } = req.body;
     name = name || null;
     email = email || null;
     password = password || null;
-    profile_picture = profile_picture || null;
-    console.log(`user email: ${email}` );
+    profile_picture = req.file.path || null;
+    
     try {
       // Check if user already exists
       const [rows] = await pool.execute('SELECT * FROM users WHERE email = ?', [email]);
       if (rows.length > 0) {
         return res.status(400).json({ msg: 'User already exists' });
       }
+      // update filename if any 
+      if (req.file) {
+        profile_picture = req.file.filename;
+      }
+      console.log(`${name}  ${email}  ${password}  ${profile_picture}`)
       // Create new user
       await pool.execute('INSERT INTO users (name, email, password, profile_picture) VALUES (?, ?, ?, ?)', [name, email, password, profile_picture]);
   
@@ -87,5 +96,6 @@ module.exports = router;
 module.exports = {
     createUser,
     loginUser,
-    getUserProfile
+    getUserProfile,
+    upload,
   };
