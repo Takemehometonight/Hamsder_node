@@ -32,6 +32,8 @@ app.get('/api/users/:id', userHandlers.getUserProfile(pool));
 
 //swipe management API endpoints
 app.post('/api/swipes/right', swipeHandlers.swipeRight(pool));
+app.post('/api/swipes/left', swipeHandlers.swipeLeft(pool));
+
 
 
 // app.get('/', (req, res) => {
