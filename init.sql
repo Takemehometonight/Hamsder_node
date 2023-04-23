@@ -3,7 +3,7 @@ USE hamsder;
 
 
 CREATE TABLE users (
-    id INTEGER PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
     name TEXT,
     email TEXT,
     password TEXT,
@@ -13,7 +13,7 @@ CREATE TABLE users (
 );
 
 CREATE TABLE swipes (
-    id INTEGER PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
     user_id INTEGER REFERENCES users(id),
     swiped_user_id INTEGER REFERENCES users(id),
     is_like BOOLEAN,
@@ -22,7 +22,7 @@ CREATE TABLE swipes (
 );
 
 CREATE TABLE matches (
-    id INTEGER PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
     user_id INTEGER REFERENCES users(id),
     matched_user_id INTEGER REFERENCES users(id),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -30,7 +30,7 @@ CREATE TABLE matches (
 );
 
 CREATE TABLE messages (
-    id INTEGER PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
     user_id INTEGER REFERENCES users(id),
     match_id INTEGER REFERENCES matches(id),
     content TEXT,
@@ -39,7 +39,7 @@ CREATE TABLE messages (
 );
 
 CREATE TABLE conversations (
-    id INTEGER PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
     user1_id INTEGER REFERENCES users(id),
     user2_id INTEGER REFERENCES users(id),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -47,7 +47,7 @@ CREATE TABLE conversations (
 );
 
 CREATE TABLE conversation_messages (
-    id INTEGER PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
     user_id INTEGER REFERENCES users(id),
     conversation_id INTEGER REFERENCES conversations(id),
     content TEXT,

@@ -1,7 +1,7 @@
 // require('dotenv').config();
 const express = require('express');
 const app = express();
-const mysql = require('mysql2');
+const mysql = require('mysql2/promise');
 const fs = require('fs');
 
 
@@ -31,9 +31,9 @@ app.post('/api/users', userHandlers.createUser(pool));
 
 
 
-app.get('/', (req, res) => {
-    res.send('Hello, World from Eric!');
-});
+// app.get('/', (req, res) => {
+//     res.send('Hello, World from Eric!');
+// });
 
 // Start the server
 const PORT = process.env.PORT || 5000;
