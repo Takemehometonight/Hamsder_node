@@ -1,4 +1,6 @@
+CREATE DATABASE hamsder;
 USE hamsder;
+
 
 CREATE TABLE users (
     id INTEGER PRIMARY KEY,
