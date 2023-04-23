@@ -5,7 +5,7 @@ USE hamsder;
 CREATE TABLE users (
     id INTEGER PRIMARY KEY AUTO_INCREMENT,
     name TEXT,
-    email TEXT UNIQUE,
+    email TEXT,
     password TEXT,
     profile_picture TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
