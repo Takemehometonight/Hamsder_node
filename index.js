@@ -26,7 +26,8 @@ const userHandlers = require('./handlers/userHandlers');
 
 // User Management API endpoints
 app.post('/api/users', userHandlers.createUser(pool));
-
+app.post('/api/users/login', userHandlers.loginUser(pool));
+app.get('/api/users/:id', userHandlers.getUserProfile(pool));
 
 
 
