@@ -43,10 +43,10 @@ const loginUser = (pool) => async (req, res) => {
       const user = rows[0];
       // const isMatch = await bcrypt.compare(password, user.password);
       if (password != user.password) {
-        return res.json({ success: false });
+        return res.json({ success: false});
       }
   
-      res.json({ success: true });
+      res.json({ success: true, id: user.id});
     } catch (error) {
       console.error(error.message);
       res.status(500).send('Server Error');
@@ -65,13 +65,13 @@ const loginUser = (pool) => async (req, res) => {
       }
   
       const user = rows[0];
-  
+      console.log(user)
       // Return user profile
       res.json({
         id: user.id,
         name: user.name,
         email: user.email,
-        createdAt: user.createdAt
+        password: user.password
         // add any other properties you want to return
       });
     } catch (error) {
