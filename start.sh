@@ -10,3 +10,6 @@ while ! docker exec mysql-container mysqladmin ping --silent &>/dev/null; do
 done
 echo "MySQL server started!"
 
+mysql -u root -h 127.0.0.1 -p < init.sql
+
+echo "hamsder database initialized!"
